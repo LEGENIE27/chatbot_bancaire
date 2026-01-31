@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant Bancaire - Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <h3>🏦 Assistant Bancaire Virtuel</h3>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>En ligne</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message welcome-message">
+               
+                <div class="message-time" id="currentTime"></div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="input-group" id="authSection">
+                <input type="text" id="customerId" placeholder="Votre ID client (ex: CLIENT123)" class="auth-input">
+                <button onclick="startChat()" class="auth-button">Commencer la discussion</button>
+            </div>
+            
+            <div class="input-group hidden" id="chatSection">
+                <input type="text" id="userInput" placeholder="Tapez votre message..." class="chat-input">
+                <button onclick="sendMessage()" class="send-button">Envoyer</button>
+            </div>
+            
+            <div class="quick-actions hidden" id="quickActions">
+                <button class="quick-btn" onclick="quickAction('solde')">Solde</button>
+                <button class="quick-btn" onclick="quickAction('transactions')">Transactions</button>
+                <button class="quick-btn" onclick="quickAction('carte')">Bloquer carte</button>
+                <button class="quick-btn" onclick="quickAction('fraude')">Signaler fraude</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>
